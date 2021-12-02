@@ -1,0 +1,35 @@
+<svg viewBox="-100 -100 200 133" preserveAspectRatio="xMidYMid" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        svg {
+            --col: orangered;
+            --state: 2;
+            --one: 10;
+            --two: 60;
+            --offset: 0;
+            cursor: pointer;
+        }
+
+        path {
+            stroke: var(--col, red);
+            stroke-width: var(--state, 2);
+            stroke-linecap: round;
+            fill: transparent;
+            stroke-dashoffset: var(--offset, 0);
+            stroke-dasharray: 0 0 var(--one) 33 0 50 var(--two);
+            transition: stroke-dasharray 175ms cubic-bezier(0.075, 0.82, 0.165, 1), stroke-width 125ms, stroke-dashoffset 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+    </style>
+
+    <path d="
+    M-60,-80
+    l120,0
+    a16,16.5 0 0 1 0,33
+    l-120,0
+    a16,16 0 0 0 0,33
+    l120,0
+    a16,16 0 0 1 0,33
+    l-120,0
+
+    " />
+
+</svg>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hamburger</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        object {
+            max-height: 100%;
+            display: block;
+            aspect-ratio: 1/1;
+            border: 1px #999 dashed;
+        }
+    </style>
+</head>
+
+<body>
+    <object onload="parseObject(event)" data="./burger.svg" type="image/svg+xml"></object>
+    <script>
+        const parseObject = e => {
+            const svg = document.querySelector('object')
+            const svgDoc = svg.contentDocument.documentElement
+
+            let state = 0
+
+            svgDoc.onclick = e => {
+                svgDoc.style.setProperty('--state', state * 2 + 2)
+                state = (state + 1) % 3
+                switch (state) {
+                    case 0:
+                        svgDoc.style.setProperty('--offset', 0)
+                        svgDoc.style.setProperty('--col', 'orangered')
+                        svgDoc.style.setProperty('--one', 10)
+                        svgDoc.style.setProperty('--two', 60)
+                        break
+                    case 1:
+                        svgDoc.style.setProperty('--one', 20)
+                        svgDoc.style.setProperty('--two', 10)
+                        svgDoc.style.setProperty('--offset', 120)
+                        break
+                    case 2:
+                        svgDoc.style.setProperty('--one', 60)
+                        svgDoc.style.setProperty('--two', 30)
+                        svgDoc.style.setProperty('--col', 'orange')
+                        break
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
